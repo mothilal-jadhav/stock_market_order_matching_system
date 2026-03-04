@@ -38,3 +38,11 @@ Core Modules will be:
     Order Book          : maintains Buy and Sell orders
     Trade Logger        : Stores Executed Orders
     Persistance layer   : sttores ordered trades
+
+
+# Key Data Strucutres
+
+Engine Relies on Two priority Queues
+
+1. Max Heap for buying orders
+2. Min Heap for selling orders
