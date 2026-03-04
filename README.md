@@ -78,3 +78,8 @@ Pseudo code for matching system:
                 break
 
 trading_quantity = min(buy_order.qty, sell_order.qty)
+
+After execution:
+-> reduce remaining quantity
+-> remove order if quantity becomes zero
+-> push partially filled order back to heap
