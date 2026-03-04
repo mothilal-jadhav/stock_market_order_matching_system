@@ -12,3 +12,21 @@ it works on a simple rule that is
             if sell_price <= best buy price; then sell order
 
 the matching order must process thousands of orders per secind while maintaining fairness and low latency.
+
+
+
+# System Architecture
+
+                        client (Trader)
+                           |
+                        REST API (Fast API)
+                           |
+                    Matching Engine
+                           |
+                        Order Book
+                        /    |   \
+                    Buy Heap |  Sell Heap
+                             |
+                        Trade Logger
+                             |
+                        Database
