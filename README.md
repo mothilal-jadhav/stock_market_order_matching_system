@@ -62,4 +62,15 @@ order objects will be like :-
                 self.quantity = quantity
                 self.timestamp = timestamp
 
-                
+# matching algorithm
+
+every time a new order arrives engine checks if a match exists
+
+        while buy_heap aand sell_heap:
+            best_buy = highest buy price
+            best_sell = lowest sell price
+
+            if best_buy.price >= best_sell.price:
+                execute trade
+            else:
+                break
