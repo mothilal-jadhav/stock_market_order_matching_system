@@ -46,3 +46,20 @@ Engine Relies on Two priority Queues
 
 1. Max Heap for buying orders
 2. Min Heap for selling orders
+
+Heaps will store Tuples: 
+
+1. Buy heap -> (-price, timestamp, order) {-ve price converts python min_heap into max_heap}
+2. sell heap -> (price, timestamp, order)
+
+order objects will be like :- 
+
+        class order:
+            def __init__(self,order_id,side,price,quality,timestamp):
+                self.order_id = order_id
+                self.side = side
+                self.price = price
+                self.quantity = quantity
+                self.timestamp = timestamp
+
+                
