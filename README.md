@@ -66,6 +66,8 @@ order objects will be like :-
 
 every time a new order arrives engine checks if a match exists
 
+Pseudo code for matching system:
+
         while buy_heap aand sell_heap:
             best_buy = highest buy price
             best_sell = lowest sell price
@@ -74,3 +76,5 @@ every time a new order arrives engine checks if a match exists
                 execute trade
             else:
                 break
+
+trading_quantity = min(buy_order.qty, sell_order.qty)
