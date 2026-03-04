@@ -30,3 +30,11 @@ the matching order must process thousands of orders per secind while maintaining
                         Trade Logger
                              |
                         Database
+
+Core Modules will be:
+
+    Order Gateway       : Recieves order through an API
+    Matching Engine     : Matches incoming Orders
+    Order Book          : maintains Buy and Sell orders
+    Trade Logger        : Stores Executed Orders
+    Persistance layer   : sttores ordered trades
