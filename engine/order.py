@@ -1,7 +1,29 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field 
+'''
+-> dataclass automatically generates boilerplate code such as __init__, __repr__ and equality comparisions otherwise we haev to manually write these methods
+-> field allows configuration of how a variable behaves inside the dataclass, such as automatically generating values
+'''
+
 from enum import Enum
+'''
+-> Enum restricts variables to predefined constant values
+-> Instead of allowing random strings like "buy" "BUY" "Buy" "purchase", the system forces the order side to be one of two valid values
+-> This prevents invalid states inside the system
+'''
+
 import time
+'''
+Orders need timestamps because most exchanges follow the price time priority rule
+
+When two orders have the same price, the order that arrived earlier must execute first. The timestamp enables that comparison
+'''
+
+
 import uuid
+'''
+every order must have unique identifires, hence uuid module generates globbaly unique id so that every order can be tracked reliably across the system. in real world every order has a unique refernce number
+'''
+
 
 
 class orderSide(Enum):
