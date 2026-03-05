@@ -417,6 +417,3 @@ Purpose:
 
 Allows others to install dependencies with one command.
 
-
-pip install -r requirements.txt
-
