@@ -141,27 +141,27 @@ lets build this project in a clean layout of
 
 stock-exchange-engine
 
-engine/
-    order.py
-    order_book.py
-    matching_engine.py
-
-api/
-    routes.py
-    main.py
-
-simulator/
-    trader_simulation.py
-
-database/
-    models.py
-
-benchmark/
-    load_test.py
-
-README.md
-Dockerfile
-requirements.txt
+        engine/
+          |  order.py
+          |  order_book.py
+          |  matching_engine.py
+          |
+        api/
+          |   routes.py
+          |   main.py
+          |
+        simulator/
+          |  trader_simulation.py
+          |
+        database/
+          |  models.py
+          |
+        benchmark/
+          |  load_test.py
+          |
+        README.md
+        Dockerfile
+        requirements.txt
 
 
 
