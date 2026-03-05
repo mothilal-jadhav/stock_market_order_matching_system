@@ -123,3 +123,42 @@ Basic matching engine structure:
 
             else:
                 break
+
+till here a very basic order matching has been done
+
+now adding extra features will turn it into some advanced version and close to NSE style order matching which works on large datasets and asynchrnous orders.
+
+to counter these many orders we can have CONCURRENCY SIMULATION to simulate many trades
+
+our metric to test wheather the project performance is good will be based on latency so lets set the metric as avg matching latency and orders processed per second
+
+all the trades that are haooening have to be stored somewhere hence lets use MySQL database for it
+
+and test the latency by stress testing large bust of orders
+
+
+lets build this project in a clean layout of 
+
+stock-exchange-engine
+
+engine/
+    order.py
+    order_book.py
+    matching_engine.py
+
+api/
+    routes.py
+    main.py
+
+simulator/
+    trader_simulation.py
+
+database/
+    models.py
+
+benchmark/
+    load_test.py
+
+README.md
+Dockerfile
+requirements.txt
