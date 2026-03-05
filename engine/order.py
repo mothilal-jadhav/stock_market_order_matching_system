@@ -57,14 +57,14 @@ CANCELLED - The trader removed the order before execution
 This is important for logging and trade history
 '''
 
-@dataclass
+@dataclass # This marks the class order as a dataclass, which means python automatically creates __init__,__repr__,__eq__
 class order:
-    side:orderSide
-    price:float
-    quantity:int
-    order_id: str = field(default_factory=lambda: str(uuid.uuid4()))
-    timestamp: float = field(default_factory=time.time)
-    status: orderStatus = orderStatus.OPEN
+    side:orderSide #Specifies whether the order is a buy or sell order
+    price:float #Defines the price limit of the order
+    quantity:int #Represents the number of shares or units in the order
+    order_id: str = field(default_factory=lambda: str(uuid.uuid4())) #Every order must have a unique identifier
+    timestamp: float = field(default_factory=time.time) #Automatically records the arrival time of the order
+    status: orderStatus = orderStatus.OPEN #Every order initially enters the system in OPEN state
 
     def __post_init__(self):
         if self.price <= 0:
