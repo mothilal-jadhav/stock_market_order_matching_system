@@ -73,7 +73,15 @@ class order:
         if self.quantity <= 0:
             raise ValueError('Quantity must be positive')
         
+    '''
+    Trades often execute partially
+    Example:
+    Order: Buy 100 shares
+    Trade executes: 40 shares
+    Remaining order quantity = 60
+    We need function that updates the remaining quantity
 
+    '''
     def reduce_quantity(self,qty):
         if qty > self.quantity:
             raise ValueError('trade quantity exceeds order quantity')
