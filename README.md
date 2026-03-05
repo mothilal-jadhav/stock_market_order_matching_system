@@ -83,3 +83,43 @@ After execution:
 -> reduce remaining quantity
 -> remove order if quantity becomes zero
 -> push partially filled order back to heap
+
+Example Python Skeleton
+Basic matching engine structure:
+
+    import heapq
+    import time
+
+    buy_heap = []
+    sell_heap = []
+
+    def add_buy(order):
+        heapq.heappush(buy_heap, (-order.price, order.timestamp, order))
+
+    def add_sell(order):
+        heapq.heappush(sell_heap, (order.price, order.timestamp, order))
+
+    def match_orders():
+
+        while buy_heap and sell_heap:
+
+            buy = buy_heap[0][2]
+            sell = sell_heap[0][2]
+
+            if buy.price >= sell.price:
+
+                trade_qty = min(buy.quantity, sell.quantity)
+
+                print("Trade executed:", trade_qty, "shares at", sell.price)
+
+                buy.quantity -= trade_qty
+                sell.quantity -= trade_qty
+
+                if buy.quantity == 0:
+                    heapq.heappop(buy_heap)
+
+                if sell.quantity == 0:
+                    heapq.heappop(sell_heap)
+
+            else:
+                break
