@@ -30,11 +30,32 @@ class orderSide(Enum):
     BUY = 'BUY'
     SELL = 'SELL'
 
+'''
+Defines the direction of the order.
+BUY - Trader wants to purchase shares.
+SELL - Trader wants to sell shares.
+Using an enum guarantees that the system only accepts these two states.
+
+'''
+
 class orderStatus(Enum):
     OPEN = 'OPEN'
     PARTIAL = 'PARTIAL'
     FILLED = 'FILLED'
     CANCELLED = 'CANCELLED'
+
+'''
+Tracks the lifecycle of an order
+OPEN - Order is waiting in the order book
+
+PARTIAL - Some quantity was executed but the order still has remaining shares
+
+FILLED - The order has been completely executed
+
+CANCELLED - The trader removed the order before execution
+
+This is important for logging and trade history
+'''
 
 @dataclass
 class order:
