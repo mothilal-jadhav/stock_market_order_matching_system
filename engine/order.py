@@ -86,11 +86,11 @@ class order:
         if qty > self.quantity:
             raise ValueError('trade quantity exceeds order quantity')
         
-        self.quantity -= qty
+        self.quantity -= qty #Reduces the remaining quantity after a trade
 
         if self.quantity == 0:
-            self.status = orderStatus.FILLED
+            self.status = orderStatus.FILLED #If no shares remain, the order is completely executed
 
         else:
-            self.status = orderStatus.PARTIAL
+            self.status = orderStatus.PARTIAL #If shares still remain, the order stays active but is marked partially executed
 
