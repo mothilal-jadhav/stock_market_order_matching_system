@@ -16,7 +16,7 @@ class TradeSimulator:
 
         quantity = random.randint(1, 100)
 
-        return Order(
+        return order(
             side=side,
             price=price,
             quantity=quantity
