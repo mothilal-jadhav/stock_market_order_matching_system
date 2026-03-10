@@ -3,6 +3,12 @@ The random module generates realistic market behaviour. Real markets contain ran
 
 
 The time module measures how long the simulation takes. This is necessary for throughput analysis
+
+
+The MatchingEngine is imported so the simulator can inject orders directly into the system
+
+
+The Order and OrderSide classes are imported to create valid orders compatible with the engine
 '''
 
 import time
