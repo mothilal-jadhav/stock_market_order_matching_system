@@ -1,3 +1,10 @@
+'''
+The random module generates realistic market behaviour. Real markets contain random price levels and order sizes. This module allows the simulator to mimic that
+
+
+The time module measures how long the simulation takes. This is necessary for throughput analysis
+'''
+
 import time
 import random
 
