@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, Float, String
-from db import Base
+from database.db import Base
 
 
 class Trade(Base):
