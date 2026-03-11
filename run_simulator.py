@@ -13,4 +13,11 @@ def main():
 if __name__== "__main__":
     main()
 
-    
+'''
+This file starts the program.
+It does three things
+-> Creates the trading engine
+-> Creates the simulator
+-> Sends thousands of orders into the engine
+
+'''
