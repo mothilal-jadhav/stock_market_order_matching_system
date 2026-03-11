@@ -1,4 +1,5 @@
 from db import engine
+from models import Trade
 from models import Base
 
 
