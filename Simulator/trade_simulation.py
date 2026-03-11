@@ -17,6 +17,14 @@ import random
 from engine.matching_engine import MatchingEngine
 from engine.order import order, orderSide
 
+'''
+TraderSimulator class represents a simplified market environment, this object generates synthetic orders
+
+The generate_random_order function creates one synthetic order 
+It randomly decides whether the order is BUY or SELL
+The price is sampled from a uniform range between 95 and 105
+The quantity is randomly selected between 1 and 100
+'''
 class TradeSimulator:
     def __init__(self, engine: MatchingEngine):
         self.engine = engine
