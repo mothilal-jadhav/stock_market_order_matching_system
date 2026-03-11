@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from engine.order import order,orderSide
+from database.db import SessionLocal
+from database.models import Trade
 
 class OrderRequest(BaseModel):
     side: str
@@ -28,7 +30,13 @@ def create_routes(app: FastAPI, engine):
 
     @app.get("/trades")
     def get_trades():
-        return engine.trade_history
+        db = SessionLocal()
+
+        trades = db.query(Trade).all()
+
+        db.close()
+
+        return trades
     
     @app.get("/orderbook")
     def get_orderbook():
