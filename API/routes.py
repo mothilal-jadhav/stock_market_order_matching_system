@@ -29,6 +29,7 @@ def create_routes(app: FastAPI, engine):
     @app.get("/trades")
     def get_trades():
         return engine.trade_history
+    
     @app.get("/orderbook")
     def get_orderbook():
 
