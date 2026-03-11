@@ -458,3 +458,12 @@ Threads used: 20
 Trades executed: 38725
 Time taken: 0.7472610473632812
 Throughput: 66911.02149165348 orders/sec
+
+after adding database
+
+Concurrent Simulation Complete
+Orders processed: 50000
+Threads used: 20
+Trades executed: 61372
+Time taken: 31.899178981781006
+Throughput: 1567.438460675027 orders/sec
