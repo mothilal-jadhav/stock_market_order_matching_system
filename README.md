@@ -467,3 +467,23 @@ Threads used: 20
 Trades executed: 61372
 Time taken: 31.899178981781006
 Throughput: 1567.438460675027 orders/sec
+
+execution style :
+
+    pip3 install -r requirements.txt
+
+    python -m database.init_db 
+
+    uvicorn API.main:app --reload
+
+    python run_simulator.py
+
+
+RESULTS:
+
+    Concurrent Simulation Complete
+    Orders processed: 50000
+    Threads used: 20
+    Trades executed: 59520
+    Time taken: 31.194929838180542
+    Throughput: 1602.82456986979 orders/sec
