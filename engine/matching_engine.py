@@ -29,8 +29,8 @@ class MatchingEngine:
     def match_orders(self):
         while self.order_book.has_orders():
 
-            best_buy = self.order_book.get_best_buy
-            best_sell = self.order_book.get_best_sell
+            best_buy = self.order_book.get_best_buy()
+            best_sell = self.order_book.get_best_sell()
             '''
             These represent the highest bid and lowest ask
             The heap ensures this operation runs in O(1) time
