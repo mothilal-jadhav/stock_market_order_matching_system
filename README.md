@@ -259,6 +259,9 @@ Time taken: 0.04636192321777344 seconds
 
 
 API LAYER
+
+The library used will be FastAPI. It is widely used for backend services because it is simple and fast
+
 The API layer allows external users/trading bots to interact with the exchange.
 
 routes.py
