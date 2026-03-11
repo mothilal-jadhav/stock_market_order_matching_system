@@ -44,7 +44,14 @@ class TradeSimulator:
             price=price,
             quantity=quantity
         )
-    
+    '''
+    The run_simulation method performs the actual load test
+    It records the start time, generates the specified number of orders, and submits each order to the engine
+
+    Each submitted order triggers the matching engine, which may execute trades immediately
+    After the loop finishes, the total execution time is computed and basic performance metrics are printed
+
+    '''
     def run_simulation(self, num_orders=1000):
 
         start_time = time.time()
