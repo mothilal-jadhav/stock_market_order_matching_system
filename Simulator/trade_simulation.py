@@ -13,6 +13,7 @@ The Order and OrderSide classes are imported to create valid orders compatible w
 
 import time
 import random
+from concurrent.futures import ThreadPoolExecutor
 
 from engine.matching_engine import MatchingEngine
 from engine.order import order, orderSide
@@ -44,29 +45,25 @@ class TradeSimulator:
             price=price,
             quantity=quantity
         )
-    '''
-    The run_simulation method performs the actual load test
-    It records the start time, generates the specified number of orders, and submits each order to the engine
+    def submit_order(self):
+        order = self.generate_random_order()
+        self.engine.submit_order(order)
 
-    Each submitted order triggers the matching engine, which may execute trades immediately
-    After the loop finishes, the total execution time is computed and basic performance metrics are printed
+    def run_concurrent_simulation(self, num_orders=10000, num_threads=10):
 
-    '''
-    def run_simulation(self, num_orders=1000):
+        start = time.time()
 
-        start_time = time.time()
+        with ThreadPoolExecutor(max_workers=num_threads) as executor:
+            for _ in range(num_orders):
+                executor.submit(self.submit_order)
 
-        for _ in range(num_orders):
+        end = time.time()
 
-            order = self.generate_random_order()
+        duration = end - start
 
-            self.engine.submit_order(order)
-
-        end_time = time.time()
-
-        duration = end_time - start_time
-
-        print("Simulation complete")
+        print("Concurrent Simulation Complete")
         print("Orders processed:", num_orders)
+        print("Threads used:", num_threads)
         print("Trades executed:", len(self.engine.trade_history))
-        print("Time taken:", duration, "seconds")
+        print("Time taken:", duration)
+        print("Throughput:", num_orders / duration, "orders/sec")
