@@ -239,24 +239,6 @@ This file represents the **heart of the exchange**.
 
 If order_book stores market data, the matching engine decides **when trades occur**.
 
-**Results** after creating some basic pipeline of 
-
-run_simulation.py
-        |
-TraderSimulator
-        |
-MatchingEngine
-        |
-OrderBook
-        |
-Trade execution
-
-
-Simulation complete
-Orders processed: 10000
-Trades executed: 7642
-Time taken: 0.04636192321777344 seconds
-
 
 API LAYER
 
@@ -309,6 +291,18 @@ uvicorn main:app
 
 Without this file the API cannot start.
 
+current architecture:
+
+    Client
+    |
+    FastAPI
+    |
+    MatchingEngine
+    |
+    OrderBook
+    |
+    Trade Execution
+
 
 SIMULATION LAYER
 
@@ -330,6 +324,24 @@ Purpose:
 * test system behavior
 * simulate heavy trading activity
 * generate performance data
+
+**Results** after creating some basic pipeline of 
+
+run_simulation.py
+        |
+TraderSimulator
+        |
+MatchingEngine
+        |
+OrderBook
+        |
+Trade execution
+
+
+Simulation complete
+Orders processed: 10000
+Trades executed: 7642
+Time taken: 0.04636192321777344 seconds
 
 
 DATABASE LAYER
