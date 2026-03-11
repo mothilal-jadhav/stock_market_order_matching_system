@@ -24,6 +24,8 @@ The generate_random_order function creates one synthetic order
 It randomly decides whether the order is BUY or SELL
 The price is sampled from a uniform range between 95 and 105
 The quantity is randomly selected between 1 and 100
+
+This randomness creates realistic market pressure where some orders match immediately and others remain pending
 '''
 class TradeSimulator:
     def __init__(self, engine: MatchingEngine):
