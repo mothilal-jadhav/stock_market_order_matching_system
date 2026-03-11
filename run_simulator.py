@@ -8,8 +8,10 @@ def main():
 
     simulator = TradeSimulator(engine)
 
-    simulator.run_simulation(10000)
-
+    simulator.run_concurrent_simulation(
+        num_orders=50000,
+        num_threads=20
+    )
 if __name__== "__main__":
     main()
 
