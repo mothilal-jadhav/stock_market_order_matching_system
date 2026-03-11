@@ -11,6 +11,8 @@ This ensures price compatibility between buyer and seller
 
 from engine.order_book import orderBook
 from engine.order import order, orderSide
+from database.db import SessionLocal
+from database.models import Trade
 
 
 class MatchingEngine:
@@ -60,6 +62,19 @@ class MatchingEngine:
             }
 
             self.trade_history.append(trade) #Adds the trade to the trade history log, Later this can be written to a database
+
+            db = SessionLocal()
+
+            db_trade = Trade(
+                buy_order_id=best_buy.order_id,
+                sell_order_id=best_sell.order_id,
+                price=trade_price,
+                quantity=trade_quantity
+            )
+
+            db.add(db_trade)
+            db.commit()
+            db.close()
 
 
             best_buy.reduce_quantity(trade_quantity)
