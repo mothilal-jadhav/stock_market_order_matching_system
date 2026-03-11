@@ -1,7 +1,6 @@
-from db import engine
-from models import Trade
-from models import Base
-
+from database.db import engine
+from database.models import Trade
+from database.db import Base
 
 def init_db():
     Base.metadata.create_all(bind=engine)
