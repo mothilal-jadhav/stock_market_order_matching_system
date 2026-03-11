@@ -13,9 +13,9 @@ def create_routes(app: FastAPI, engine):
     @app.post("/order")
     def submit_order(order: OrderRequest):
 
-        side = OrderSide.BUY if order.side.upper() == "BUY" else OrderSide.SELL
+        side = orderSide.BUY if order.side.upper() == "BUY" else orderSide.SELL
 
-        new_order = Order(
+        new_order = order(
             side=side,
             price=order.price,
             quantity=order.quantity
