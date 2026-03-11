@@ -13,6 +13,7 @@ from engine.order_book import orderBook
 from engine.order import order, orderSide
 from database.db import SessionLocal
 from database.models import Trade
+import threading
 
 
 class MatchingEngine:
@@ -20,11 +21,14 @@ class MatchingEngine:
     def __init__(self):
         self.order_book = orderBook() #Creates a new order book to store incoming orders
         self.trade_history = [] #Stores executed trades
+        self.lock = threading.Lock()
 
 
 
     def submit_order(self,order:order): #Entry point for all orders coming from API, simulator, external trader
-        self.order_book.add_order(order)
+        with self.lock:
+            self.order_book.add_order(order)
+            self.match_orders()
 
         self.match_orders() #After inserting the order, the engine attempts to match it immediately
 
