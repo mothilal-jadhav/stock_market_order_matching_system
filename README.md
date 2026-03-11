@@ -480,10 +480,9 @@ execution style :
 
 
 RESULTS:
-
     Concurrent Simulation Complete
     Orders processed: 50000
     Threads used: 20
-    Trades executed: 59520
-    Time taken: 31.194929838180542
-    Throughput: 1602.82456986979 orders/sec
+    Trades executed: 38813
+    Time taken: 20.891090869903564
+    Throughput: 2393.364727163757 orders/sec
